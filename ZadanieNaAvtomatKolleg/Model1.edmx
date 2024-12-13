@@ -1,0 +1,1200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Zadanie_na_Avtomat_KollegModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Day_Nedelia">
+          <Key>
+            <PropertyRef Name="ID_day_Ned" />
+          </Key>
+          <Property Name="ID_day_Ned" Type="nchar" MaxLength="2" Nullable="false" />
+          <Property Name="Nazvanie" Type="varchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="Disciplina">
+          <Key>
+            <PropertyRef Name="ID_Disciplina" />
+          </Key>
+          <Property Name="ID_Disciplina" Type="int" Nullable="false" />
+          <Property Name="Nazvanie_Disciplina" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Ekzamens">
+          <Key>
+            <PropertyRef Name="ID_Ekzamena" />
+          </Key>
+          <Property Name="ID_Ekzamena" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_Uhebnogo_Plana" Type="int" Nullable="false" />
+          <Property Name="ID_Prepodovatela" Type="int" Nullable="false" />
+          <Property Name="ID_Studenta" Type="int" Nullable="false" />
+          <Property Name="Data_Provedenia" Type="date" Nullable="false" />
+          <Property Name="Nomer_Kabineta" Type="int" Nullable="false" />
+          <Property Name="Ocenka" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gruppa">
+          <Key>
+            <PropertyRef Name="ID_Gruppa" />
+          </Key>
+          <Property Name="ID_Gruppa" Type="int" Nullable="false" />
+          <Property Name="Nomer_Gruppa" Type="nchar" MaxLength="10" />
+          <Property Name="ID_Specialnosti" Type="int" />
+          <Property Name="God_Priema" Type="date" />
+        </EntityType>
+        <EntityType Name="Nagruzka">
+          <Key>
+            <PropertyRef Name="ID_Nagruzki" />
+          </Key>
+          <Property Name="ID_Nagruzki" Type="int" Nullable="false" />
+          <Property Name="ID_Prepodovatela" Type="int" />
+          <Property Name="ID_Uhebnogo_Plana" Type="int" />
+          <Property Name="Semestr" Type="int" />
+        </EntityType>
+        <EntityType Name="Otdelenie">
+          <Key>
+            <PropertyRef Name="ID_Otdelenia" />
+          </Key>
+          <Property Name="ID_Otdelenia" Type="int" Nullable="false" />
+          <Property Name="Nazvanie_Otdelenia" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Zav_Otdelenia" Type="int" />
+        </EntityType>
+        <EntityType Name="Prepodovatel">
+          <Key>
+            <PropertyRef Name="ID_Prepodovatela" />
+          </Key>
+          <Property Name="ID_Prepodovatela" Type="int" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="int" />
+          <Property Name="Obrozovanie" Type="varchar" MaxLength="50" />
+          <Property Name="Stepen" Type="varchar" MaxLength="50" />
+          <Property Name="Kfalificacia" Type="varchar" MaxLength="50" />
+          <Property Name="Login_Prepod" Type="varchar" MaxLength="50" />
+          <Property Name="Password_Prepod" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Raspisanie">
+          <Key>
+            <PropertyRef Name="ID_Raspisanie" />
+          </Key>
+          <Property Name="ID_Raspisanie" Type="int" Nullable="false" />
+          <Property Name="ID_Gruppa" Type="int" />
+          <Property Name="ID_Nagruzka" Type="int" />
+          <Property Name="Nomer_kabineta" Type="int" />
+          <Property Name="Nomer_para" Type="int" />
+          <Property Name="ID_Day_Nedelia" Type="nchar" MaxLength="2" />
+          <Property Name="ID_tip_Zanania" Type="nchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID_sotrudnika" />
+          </Key>
+          <Property Name="ID_sotrudnika" Type="int" Nullable="false" />
+          <Property Name="Familia" Type="varchar" MaxLength="50" />
+          <Property Name="Ima" Type="varchar" MaxLength="50" />
+          <Property Name="Othestvo" Type="varchar" MaxLength="50" />
+          <Property Name="Data_Rojdenia" Type="date" />
+        </EntityType>
+        <EntityType Name="Specialnost">
+          <Key>
+            <PropertyRef Name="ID_Specialnosti" />
+          </Key>
+          <Property Name="ID_Specialnosti" Type="int" Nullable="false" />
+          <Property Name="Nomer_Specialnosti" Type="nchar" MaxLength="8" />
+          <Property Name="Nazvanie_Specialnosti" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Otdelenia" Type="int" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID_Studenta" />
+          </Key>
+          <Property Name="ID_Studenta" Type="int" Nullable="false" />
+          <Property Name="ID_Gruppa" Type="int" />
+          <Property Name="Familia_St" Type="varchar" MaxLength="50" />
+          <Property Name="Names_St" Type="varchar" MaxLength="50" />
+          <Property Name="Othestvo_St" Type="varchar" MaxLength="50" />
+          <Property Name="Data_Rojdenia" Type="date" />
+          <Property Name="Gorod_Rojdenia" Type="varchar" MaxLength="50" />
+          <Property Name="LoginStudent" Type="varchar" MaxLength="50" />
+          <Property Name="PasswordStudent" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tip_Zanytia">
+          <Key>
+            <PropertyRef Name="ID_Tipa_zan" />
+          </Key>
+          <Property Name="ID_Tipa_zan" Type="nchar" MaxLength="3" Nullable="false" />
+          <Property Name="Nazvanie" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="Uhebnia_Plan">
+          <Key>
+            <PropertyRef Name="ID_Uhebnogo_Plana" />
+          </Key>
+          <Property Name="ID_Uhebnogo_Plana" Type="int" Nullable="false" />
+          <Property Name="ID_Disciplina" Type="int" />
+          <Property Name="ID_Specialnosti" Type="int" />
+          <Property Name="Kolihestvo_Hasov" Type="int" />
+        </EntityType>
+        <EntityType Name="Zav_Otdelenia">
+          <Key>
+            <PropertyRef Name="ID_zav_Otdelenia" />
+          </Key>
+          <Property Name="ID_zav_Otdelenia" Type="int" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="int" />
+          <Property Name="Obraozvanie" Type="varchar" MaxLength="50" />
+          <Property Name="Login_zaved" Type="varchar" MaxLength="50" />
+          <Property Name="Passwors_zaved" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Ekzamen_Prepodovatel">
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prepodovatel">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ekzamen_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID_Studenta" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Studenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ekzamen_Uhebnia_Plan">
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gruppa_Specialnost">
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="0..1" />
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialnost">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Principal>
+            <Dependent Role="Gruppa">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nagruzka_Prepodovatel">
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="0..1" />
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prepodovatel">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Principal>
+            <Dependent Role="Nagruzka">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nagruzka_Uhebnia_Plan">
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="0..1" />
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Principal>
+            <Dependent Role="Nagruzka">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otdelenie_Zav_Otdelenia">
+          <End Role="Zav_Otdelenia" Type="Self.Zav_Otdelenia" Multiplicity="0..1" />
+          <End Role="Otdelenie" Type="Self.Otdelenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zav_Otdelenia">
+              <PropertyRef Name="ID_zav_Otdelenia" />
+            </Principal>
+            <Dependent Role="Otdelenie">
+              <PropertyRef Name="ID_Zav_Otdelenia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prepodovatel_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="Prepodovatel">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Day_Nedelia">
+          <End Role="Day_Nedelia" Type="Self.Day_Nedelia" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Day_Nedelia">
+              <PropertyRef Name="ID_day_Ned" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Day_Nedelia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Gruppa">
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gruppa">
+              <PropertyRef Name="ID_Gruppa" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Gruppa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Nagruzka">
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nagruzka">
+              <PropertyRef Name="ID_Nagruzki" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Nagruzka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Tip_Zanytia">
+          <End Role="Tip_Zanytia" Type="Self.Tip_Zanytia" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_Zanytia">
+              <PropertyRef Name="ID_Tipa_zan" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_tip_Zanania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialnost_Otdelenie">
+          <End Role="Otdelenie" Type="Self.Otdelenie" Multiplicity="0..1" />
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otdelenie">
+              <PropertyRef Name="ID_Otdelenia" />
+            </Principal>
+            <Dependent Role="Specialnost">
+              <PropertyRef Name="ID_Otdelenia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Gruppa">
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gruppa">
+              <PropertyRef Name="ID_Gruppa" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ID_Gruppa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uhebnia_Plan_Disciplina">
+          <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="0..1" />
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disciplina">
+              <PropertyRef Name="ID_Disciplina" />
+            </Principal>
+            <Dependent Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Disciplina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uhebnia_Plan_Specialnost">
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="0..1" />
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialnost">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Principal>
+            <Dependent Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zav_Otdelenia_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Zav_Otdelenia" Type="Self.Zav_Otdelenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="Zav_Otdelenia">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="Хранилище Zadanie_na_Avtomat_KollegModelContainer">
+          <EntitySet Name="Day_Nedelia" EntityType="Self.Day_Nedelia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Disciplina" EntityType="Self.Disciplina" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ekzamens" EntityType="Self.Ekzamens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gruppa" EntityType="Self.Gruppa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Nagruzka" EntityType="Self.Nagruzka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Otdelenie" EntityType="Self.Otdelenie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prepodovatel" EntityType="Self.Prepodovatel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Raspisanie" EntityType="Self.Raspisanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Specialnost" EntityType="Self.Specialnost" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip_Zanytia" EntityType="Self.Tip_Zanytia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uhebnia_Plan" EntityType="Self.Uhebnia_Plan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Zav_Otdelenia" EntityType="Self.Zav_Otdelenia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Ekzamen_Prepodovatel" Association="Self.FK_Ekzamen_Prepodovatel">
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ekzamen_Student" Association="Self.FK_Ekzamen_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ekzamen_Uhebnia_Plan" Association="Self.FK_Ekzamen_Uhebnia_Plan">
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gruppa_Specialnost" Association="Self.FK_Gruppa_Specialnost">
+            <End Role="Specialnost" EntitySet="Specialnost" />
+            <End Role="Gruppa" EntitySet="Gruppa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nagruzka_Prepodovatel" Association="Self.FK_Nagruzka_Prepodovatel">
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nagruzka_Uhebnia_Plan" Association="Self.FK_Nagruzka_Uhebnia_Plan">
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otdelenie_Zav_Otdelenia" Association="Self.FK_Otdelenie_Zav_Otdelenia">
+            <End Role="Zav_Otdelenia" EntitySet="Zav_Otdelenia" />
+            <End Role="Otdelenie" EntitySet="Otdelenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prepodovatel_Sotrudnik" Association="Self.FK_Prepodovatel_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Day_Nedelia" Association="Self.FK_Raspisanie_Day_Nedelia">
+            <End Role="Day_Nedelia" EntitySet="Day_Nedelia" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Gruppa" Association="Self.FK_Raspisanie_Gruppa">
+            <End Role="Gruppa" EntitySet="Gruppa" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Nagruzka" Association="Self.FK_Raspisanie_Nagruzka">
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Tip_Zanytia" Association="Self.FK_Raspisanie_Tip_Zanytia">
+            <End Role="Tip_Zanytia" EntitySet="Tip_Zanytia" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialnost_Otdelenie" Association="Self.FK_Specialnost_Otdelenie">
+            <End Role="Otdelenie" EntitySet="Otdelenie" />
+            <End Role="Specialnost" EntitySet="Specialnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Gruppa" Association="Self.FK_Student_Gruppa">
+            <End Role="Gruppa" EntitySet="Gruppa" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uhebnia_Plan_Disciplina" Association="Self.FK_Uhebnia_Plan_Disciplina">
+            <End Role="Disciplina" EntitySet="Disciplina" />
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uhebnia_Plan_Specialnost" Association="Self.FK_Uhebnia_Plan_Specialnost">
+            <End Role="Specialnost" EntitySet="Specialnost" />
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zav_Otdelenia_Sotrudnik" Association="Self.FK_Zav_Otdelenia_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Zav_Otdelenia" EntitySet="Zav_Otdelenia" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Zadanie_na_Avtomat_KollegModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Day_Nedelia">
+          <Key>
+            <PropertyRef Name="ID_day_Ned" />
+          </Key>
+          <Property Name="ID_day_Ned" Type="String" MaxLength="2" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nazvanie" Type="String" MaxLength="16" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Raspisanie" Relationship="Self.FK_Raspisanie_Day_Nedelia" FromRole="Day_Nedelia" ToRole="Raspisanie" />
+        </EntityType>
+        <EntityType Name="Disciplina">
+          <Key>
+            <PropertyRef Name="ID_Disciplina" />
+          </Key>
+          <Property Name="ID_Disciplina" Type="Int32" Nullable="false" />
+          <Property Name="Nazvanie_Disciplina" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Uhebnia_Plan" Relationship="Self.FK_Uhebnia_Plan_Disciplina" FromRole="Disciplina" ToRole="Uhebnia_Plan" />
+        </EntityType>
+        <EntityType Name="Ekzamens">
+          <Key>
+            <PropertyRef Name="ID_Ekzamena" />
+          </Key>
+          <Property Name="ID_Ekzamena" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_Uhebnogo_Plana" Type="Int32" Nullable="false" />
+          <Property Name="ID_Prepodovatela" Type="Int32" Nullable="false" />
+          <Property Name="ID_Studenta" Type="Int32" Nullable="false" />
+          <Property Name="Data_Provedenia" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nomer_Kabineta" Type="Int32" Nullable="false" />
+          <Property Name="Ocenka" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Prepodovatel" Relationship="Self.FK_Ekzamen_Prepodovatel" FromRole="Ekzamens" ToRole="Prepodovatel" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Ekzamen_Student" FromRole="Ekzamens" ToRole="Student" />
+          <NavigationProperty Name="Uhebnia_Plan" Relationship="Self.FK_Ekzamen_Uhebnia_Plan" FromRole="Ekzamens" ToRole="Uhebnia_Plan" />
+        </EntityType>
+        <EntityType Name="Gruppa">
+          <Key>
+            <PropertyRef Name="ID_Gruppa" />
+          </Key>
+          <Property Name="ID_Gruppa" Type="Int32" Nullable="false" />
+          <Property Name="Nomer_Gruppa" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ID_Specialnosti" Type="Int32" />
+          <Property Name="God_Priema" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Specialnost" Relationship="Self.FK_Gruppa_Specialnost" FromRole="Gruppa" ToRole="Specialnost" />
+          <NavigationProperty Name="Raspisanie" Relationship="Self.FK_Raspisanie_Gruppa" FromRole="Gruppa" ToRole="Raspisanie" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Student_Gruppa" FromRole="Gruppa" ToRole="Student" />
+        </EntityType>
+        <EntityType Name="Nagruzka">
+          <Key>
+            <PropertyRef Name="ID_Nagruzki" />
+          </Key>
+          <Property Name="ID_Nagruzki" Type="Int32" Nullable="false" />
+          <Property Name="ID_Prepodovatela" Type="Int32" />
+          <Property Name="ID_Uhebnogo_Plana" Type="Int32" />
+          <Property Name="Semestr" Type="Int32" />
+          <NavigationProperty Name="Prepodovatel" Relationship="Self.FK_Nagruzka_Prepodovatel" FromRole="Nagruzka" ToRole="Prepodovatel" />
+          <NavigationProperty Name="Uhebnia_Plan" Relationship="Self.FK_Nagruzka_Uhebnia_Plan" FromRole="Nagruzka" ToRole="Uhebnia_Plan" />
+          <NavigationProperty Name="Raspisanie" Relationship="Self.FK_Raspisanie_Nagruzka" FromRole="Nagruzka" ToRole="Raspisanie" />
+        </EntityType>
+        <EntityType Name="Otdelenie">
+          <Key>
+            <PropertyRef Name="ID_Otdelenia" />
+          </Key>
+          <Property Name="ID_Otdelenia" Type="Int32" Nullable="false" />
+          <Property Name="Nazvanie_Otdelenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Zav_Otdelenia" Type="Int32" />
+          <NavigationProperty Name="Zav_Otdelenia" Relationship="Self.FK_Otdelenie_Zav_Otdelenia" FromRole="Otdelenie" ToRole="Zav_Otdelenia" />
+          <NavigationProperty Name="Specialnost" Relationship="Self.FK_Specialnost_Otdelenie" FromRole="Otdelenie" ToRole="Specialnost" />
+        </EntityType>
+        <EntityType Name="Prepodovatel">
+          <Key>
+            <PropertyRef Name="ID_Prepodovatela" />
+          </Key>
+          <Property Name="ID_Prepodovatela" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="Int32" />
+          <Property Name="Obrozovanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Stepen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kfalificacia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login_Prepod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password_Prepod" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ekzamens" Relationship="Self.FK_Ekzamen_Prepodovatel" FromRole="Prepodovatel" ToRole="Ekzamens" />
+          <NavigationProperty Name="Nagruzka" Relationship="Self.FK_Nagruzka_Prepodovatel" FromRole="Prepodovatel" ToRole="Nagruzka" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Prepodovatel_Sotrudnik" FromRole="Prepodovatel" ToRole="Sotrudnik" />
+        </EntityType>
+        <EntityType Name="Raspisanie">
+          <Key>
+            <PropertyRef Name="ID_Raspisanie" />
+          </Key>
+          <Property Name="ID_Raspisanie" Type="Int32" Nullable="false" />
+          <Property Name="ID_Gruppa" Type="Int32" />
+          <Property Name="ID_Nagruzka" Type="Int32" />
+          <Property Name="Nomer_kabineta" Type="Int32" />
+          <Property Name="Nomer_para" Type="Int32" />
+          <Property Name="ID_Day_Nedelia" Type="String" MaxLength="2" FixedLength="true" Unicode="true" />
+          <Property Name="ID_tip_Zanania" Type="String" MaxLength="3" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Day_Nedelia" Relationship="Self.FK_Raspisanie_Day_Nedelia" FromRole="Raspisanie" ToRole="Day_Nedelia" />
+          <NavigationProperty Name="Gruppa" Relationship="Self.FK_Raspisanie_Gruppa" FromRole="Raspisanie" ToRole="Gruppa" />
+          <NavigationProperty Name="Nagruzka" Relationship="Self.FK_Raspisanie_Nagruzka" FromRole="Raspisanie" ToRole="Nagruzka" />
+          <NavigationProperty Name="Tip_Zanytia" Relationship="Self.FK_Raspisanie_Tip_Zanytia" FromRole="Raspisanie" ToRole="Tip_Zanytia" />
+        </EntityType>
+        <EntityType Name="Sotrudnik">
+          <Key>
+            <PropertyRef Name="ID_sotrudnika" />
+          </Key>
+          <Property Name="ID_sotrudnika" Type="Int32" Nullable="false" />
+          <Property Name="Familia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ima" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Othestvo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Rojdenia" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Prepodovatel" Relationship="Self.FK_Prepodovatel_Sotrudnik" FromRole="Sotrudnik" ToRole="Prepodovatel" />
+          <NavigationProperty Name="Zav_Otdelenia" Relationship="Self.FK_Zav_Otdelenia_Sotrudnik" FromRole="Sotrudnik" ToRole="Zav_Otdelenia" />
+        </EntityType>
+        <EntityType Name="Specialnost">
+          <Key>
+            <PropertyRef Name="ID_Specialnosti" />
+          </Key>
+          <Property Name="ID_Specialnosti" Type="Int32" Nullable="false" />
+          <Property Name="Nomer_Specialnosti" Type="String" MaxLength="8" FixedLength="true" Unicode="true" />
+          <Property Name="Nazvanie_Specialnosti" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Otdelenia" Type="Int32" />
+          <NavigationProperty Name="Gruppa" Relationship="Self.FK_Gruppa_Specialnost" FromRole="Specialnost" ToRole="Gruppa" />
+          <NavigationProperty Name="Otdelenie" Relationship="Self.FK_Specialnost_Otdelenie" FromRole="Specialnost" ToRole="Otdelenie" />
+          <NavigationProperty Name="Uhebnia_Plan" Relationship="Self.FK_Uhebnia_Plan_Specialnost" FromRole="Specialnost" ToRole="Uhebnia_Plan" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID_Studenta" />
+          </Key>
+          <Property Name="ID_Studenta" Type="Int32" Nullable="false" />
+          <Property Name="ID_Gruppa" Type="Int32" />
+          <Property Name="Familia_St" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Names_St" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Othestvo_St" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_Rojdenia" Type="DateTime" Precision="0" />
+          <Property Name="Gorod_Rojdenia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoginStudent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PasswordStudent" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Ekzamens" Relationship="Self.FK_Ekzamen_Student" FromRole="Student" ToRole="Ekzamens" />
+          <NavigationProperty Name="Gruppa" Relationship="Self.FK_Student_Gruppa" FromRole="Student" ToRole="Gruppa" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tip_Zanytia">
+          <Key>
+            <PropertyRef Name="ID_Tipa_zan" />
+          </Key>
+          <Property Name="ID_Tipa_zan" Type="String" MaxLength="3" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nazvanie" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Raspisanie" Relationship="Self.FK_Raspisanie_Tip_Zanytia" FromRole="Tip_Zanytia" ToRole="Raspisanie" />
+        </EntityType>
+        <EntityType Name="Uhebnia_Plan">
+          <Key>
+            <PropertyRef Name="ID_Uhebnogo_Plana" />
+          </Key>
+          <Property Name="ID_Uhebnogo_Plana" Type="Int32" Nullable="false" />
+          <Property Name="ID_Disciplina" Type="Int32" />
+          <Property Name="ID_Specialnosti" Type="Int32" />
+          <Property Name="Kolihestvo_Hasov" Type="Int32" />
+          <NavigationProperty Name="Disciplina" Relationship="Self.FK_Uhebnia_Plan_Disciplina" FromRole="Uhebnia_Plan" ToRole="Disciplina" />
+          <NavigationProperty Name="Ekzamens" Relationship="Self.FK_Ekzamen_Uhebnia_Plan" FromRole="Uhebnia_Plan" ToRole="Ekzamens" />
+          <NavigationProperty Name="Nagruzka" Relationship="Self.FK_Nagruzka_Uhebnia_Plan" FromRole="Uhebnia_Plan" ToRole="Nagruzka" />
+          <NavigationProperty Name="Specialnost" Relationship="Self.FK_Uhebnia_Plan_Specialnost" FromRole="Uhebnia_Plan" ToRole="Specialnost" />
+        </EntityType>
+        <EntityType Name="Zav_Otdelenia">
+          <Key>
+            <PropertyRef Name="ID_zav_Otdelenia" />
+          </Key>
+          <Property Name="ID_zav_Otdelenia" Type="Int32" Nullable="false" />
+          <Property Name="ID_Sotrudnika" Type="Int32" />
+          <Property Name="Obraozvanie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Login_zaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Passwors_zaved" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Otdelenie" Relationship="Self.FK_Otdelenie_Zav_Otdelenia" FromRole="Zav_Otdelenia" ToRole="Otdelenie" />
+          <NavigationProperty Name="Sotrudnik" Relationship="Self.FK_Zav_Otdelenia_Sotrudnik" FromRole="Zav_Otdelenia" ToRole="Sotrudnik" />
+        </EntityType>
+        <Association Name="FK_Raspisanie_Day_Nedelia">
+          <End Role="Day_Nedelia" Type="Self.Day_Nedelia" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Day_Nedelia">
+              <PropertyRef Name="ID_day_Ned" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Day_Nedelia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uhebnia_Plan_Disciplina">
+          <End Role="Disciplina" Type="Self.Disciplina" Multiplicity="0..1" />
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Disciplina">
+              <PropertyRef Name="ID_Disciplina" />
+            </Principal>
+            <Dependent Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Disciplina" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ekzamen_Prepodovatel">
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prepodovatel">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ekzamen_Student">
+          <End Role="Student" Type="Self.Student" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Student">
+              <PropertyRef Name="ID_Studenta" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Studenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ekzamen_Uhebnia_Plan">
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="1" />
+          <End Role="Ekzamens" Type="Self.Ekzamens" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Principal>
+            <Dependent Role="Ekzamens">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Gruppa_Specialnost">
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="0..1" />
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialnost">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Principal>
+            <Dependent Role="Gruppa">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Gruppa">
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gruppa">
+              <PropertyRef Name="ID_Gruppa" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Gruppa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Student_Gruppa">
+          <End Role="Gruppa" Type="Self.Gruppa" Multiplicity="0..1" />
+          <End Role="Student" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gruppa">
+              <PropertyRef Name="ID_Gruppa" />
+            </Principal>
+            <Dependent Role="Student">
+              <PropertyRef Name="ID_Gruppa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nagruzka_Prepodovatel">
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="0..1" />
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prepodovatel">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Principal>
+            <Dependent Role="Nagruzka">
+              <PropertyRef Name="ID_Prepodovatela" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Nagruzka_Uhebnia_Plan">
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="0..1" />
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Principal>
+            <Dependent Role="Nagruzka">
+              <PropertyRef Name="ID_Uhebnogo_Plana" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Nagruzka">
+          <End Role="Nagruzka" Type="Self.Nagruzka" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Nagruzka">
+              <PropertyRef Name="ID_Nagruzki" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_Nagruzka" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Otdelenie_Zav_Otdelenia">
+          <End Role="Zav_Otdelenia" Type="Self.Zav_Otdelenia" Multiplicity="0..1" />
+          <End Role="Otdelenie" Type="Self.Otdelenie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zav_Otdelenia">
+              <PropertyRef Name="ID_zav_Otdelenia" />
+            </Principal>
+            <Dependent Role="Otdelenie">
+              <PropertyRef Name="ID_Zav_Otdelenia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Specialnost_Otdelenie">
+          <End Role="Otdelenie" Type="Self.Otdelenie" Multiplicity="0..1" />
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Otdelenie">
+              <PropertyRef Name="ID_Otdelenia" />
+            </Principal>
+            <Dependent Role="Specialnost">
+              <PropertyRef Name="ID_Otdelenia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prepodovatel_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Prepodovatel" Type="Self.Prepodovatel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="Prepodovatel">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Raspisanie_Tip_Zanytia">
+          <End Role="Tip_Zanytia" Type="Self.Tip_Zanytia" Multiplicity="0..1" />
+          <End Role="Raspisanie" Type="Self.Raspisanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_Zanytia">
+              <PropertyRef Name="ID_Tipa_zan" />
+            </Principal>
+            <Dependent Role="Raspisanie">
+              <PropertyRef Name="ID_tip_Zanania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zav_Otdelenia_Sotrudnik">
+          <End Role="Sotrudnik" Type="Self.Sotrudnik" Multiplicity="0..1" />
+          <End Role="Zav_Otdelenia" Type="Self.Zav_Otdelenia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sotrudnik">
+              <PropertyRef Name="ID_sotrudnika" />
+            </Principal>
+            <Dependent Role="Zav_Otdelenia">
+              <PropertyRef Name="ID_Sotrudnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Uhebnia_Plan_Specialnost">
+          <End Role="Specialnost" Type="Self.Specialnost" Multiplicity="0..1" />
+          <End Role="Uhebnia_Plan" Type="Self.Uhebnia_Plan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specialnost">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Principal>
+            <Dependent Role="Uhebnia_Plan">
+              <PropertyRef Name="ID_Specialnosti" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Zadanie_na_Avtomat_KollegEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Day_Nedelia" EntityType="Self.Day_Nedelia" />
+          <EntitySet Name="Disciplina" EntityType="Self.Disciplina" />
+          <EntitySet Name="Ekzamens" EntityType="Self.Ekzamens" />
+          <EntitySet Name="Gruppa" EntityType="Self.Gruppa" />
+          <EntitySet Name="Nagruzka" EntityType="Self.Nagruzka" />
+          <EntitySet Name="Otdelenie" EntityType="Self.Otdelenie" />
+          <EntitySet Name="Prepodovatel" EntityType="Self.Prepodovatel" />
+          <EntitySet Name="Raspisanie" EntityType="Self.Raspisanie" />
+          <EntitySet Name="Sotrudnik" EntityType="Self.Sotrudnik" />
+          <EntitySet Name="Specialnost" EntityType="Self.Specialnost" />
+          <EntitySet Name="Student" EntityType="Self.Student" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tip_Zanytia" EntityType="Self.Tip_Zanytia" />
+          <EntitySet Name="Uhebnia_Plan" EntityType="Self.Uhebnia_Plan" />
+          <EntitySet Name="Zav_Otdelenia" EntityType="Self.Zav_Otdelenia" />
+          <AssociationSet Name="FK_Raspisanie_Day_Nedelia" Association="Self.FK_Raspisanie_Day_Nedelia">
+            <End Role="Day_Nedelia" EntitySet="Day_Nedelia" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uhebnia_Plan_Disciplina" Association="Self.FK_Uhebnia_Plan_Disciplina">
+            <End Role="Disciplina" EntitySet="Disciplina" />
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ekzamen_Prepodovatel" Association="Self.FK_Ekzamen_Prepodovatel">
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ekzamen_Student" Association="Self.FK_Ekzamen_Student">
+            <End Role="Student" EntitySet="Student" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ekzamen_Uhebnia_Plan" Association="Self.FK_Ekzamen_Uhebnia_Plan">
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+            <End Role="Ekzamens" EntitySet="Ekzamens" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Gruppa_Specialnost" Association="Self.FK_Gruppa_Specialnost">
+            <End Role="Specialnost" EntitySet="Specialnost" />
+            <End Role="Gruppa" EntitySet="Gruppa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Gruppa" Association="Self.FK_Raspisanie_Gruppa">
+            <End Role="Gruppa" EntitySet="Gruppa" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Student_Gruppa" Association="Self.FK_Student_Gruppa">
+            <End Role="Gruppa" EntitySet="Gruppa" />
+            <End Role="Student" EntitySet="Student" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nagruzka_Prepodovatel" Association="Self.FK_Nagruzka_Prepodovatel">
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Nagruzka_Uhebnia_Plan" Association="Self.FK_Nagruzka_Uhebnia_Plan">
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Nagruzka" Association="Self.FK_Raspisanie_Nagruzka">
+            <End Role="Nagruzka" EntitySet="Nagruzka" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Otdelenie_Zav_Otdelenia" Association="Self.FK_Otdelenie_Zav_Otdelenia">
+            <End Role="Zav_Otdelenia" EntitySet="Zav_Otdelenia" />
+            <End Role="Otdelenie" EntitySet="Otdelenie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Specialnost_Otdelenie" Association="Self.FK_Specialnost_Otdelenie">
+            <End Role="Otdelenie" EntitySet="Otdelenie" />
+            <End Role="Specialnost" EntitySet="Specialnost" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prepodovatel_Sotrudnik" Association="Self.FK_Prepodovatel_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Prepodovatel" EntitySet="Prepodovatel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Raspisanie_Tip_Zanytia" Association="Self.FK_Raspisanie_Tip_Zanytia">
+            <End Role="Tip_Zanytia" EntitySet="Tip_Zanytia" />
+            <End Role="Raspisanie" EntitySet="Raspisanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zav_Otdelenia_Sotrudnik" Association="Self.FK_Zav_Otdelenia_Sotrudnik">
+            <End Role="Sotrudnik" EntitySet="Sotrudnik" />
+            <End Role="Zav_Otdelenia" EntitySet="Zav_Otdelenia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Uhebnia_Plan_Specialnost" Association="Self.FK_Uhebnia_Plan_Specialnost">
+            <End Role="Specialnost" EntitySet="Specialnost" />
+            <End Role="Uhebnia_Plan" EntitySet="Uhebnia_Plan" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(Zadanie_na_Avtomat_KollegModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(Zadanie_na_Avtomat_KollegModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Zadanie_na_Avtomat_KollegModelContainer" CdmEntityContainer="Zadanie_na_Avtomat_KollegEntities">
+          <EntitySetMapping Name="Day_Nedelia">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Day_Nedelia">
+              <MappingFragment StoreEntitySet="Day_Nedelia">
+                <ScalarProperty Name="ID_day_Ned" ColumnName="ID_day_Ned" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Disciplina">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Disciplina">
+              <MappingFragment StoreEntitySet="Disciplina">
+                <ScalarProperty Name="ID_Disciplina" ColumnName="ID_Disciplina" />
+                <ScalarProperty Name="Nazvanie_Disciplina" ColumnName="Nazvanie_Disciplina" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ekzamens">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Ekzamens">
+              <MappingFragment StoreEntitySet="Ekzamens">
+                <ScalarProperty Name="ID_Ekzamena" ColumnName="ID_Ekzamena" />
+                <ScalarProperty Name="ID_Uhebnogo_Plana" ColumnName="ID_Uhebnogo_Plana" />
+                <ScalarProperty Name="ID_Prepodovatela" ColumnName="ID_Prepodovatela" />
+                <ScalarProperty Name="ID_Studenta" ColumnName="ID_Studenta" />
+                <ScalarProperty Name="Data_Provedenia" ColumnName="Data_Provedenia" />
+                <ScalarProperty Name="Nomer_Kabineta" ColumnName="Nomer_Kabineta" />
+                <ScalarProperty Name="Ocenka" ColumnName="Ocenka" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gruppa">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Gruppa">
+              <MappingFragment StoreEntitySet="Gruppa">
+                <ScalarProperty Name="ID_Gruppa" ColumnName="ID_Gruppa" />
+                <ScalarProperty Name="Nomer_Gruppa" ColumnName="Nomer_Gruppa" />
+                <ScalarProperty Name="ID_Specialnosti" ColumnName="ID_Specialnosti" />
+                <ScalarProperty Name="God_Priema" ColumnName="God_Priema" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nagruzka">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Nagruzka">
+              <MappingFragment StoreEntitySet="Nagruzka">
+                <ScalarProperty Name="ID_Nagruzki" ColumnName="ID_Nagruzki" />
+                <ScalarProperty Name="ID_Prepodovatela" ColumnName="ID_Prepodovatela" />
+                <ScalarProperty Name="ID_Uhebnogo_Plana" ColumnName="ID_Uhebnogo_Plana" />
+                <ScalarProperty Name="Semestr" ColumnName="Semestr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Otdelenie">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Otdelenie">
+              <MappingFragment StoreEntitySet="Otdelenie">
+                <ScalarProperty Name="ID_Otdelenia" ColumnName="ID_Otdelenia" />
+                <ScalarProperty Name="Nazvanie_Otdelenia" ColumnName="Nazvanie_Otdelenia" />
+                <ScalarProperty Name="ID_Zav_Otdelenia" ColumnName="ID_Zav_Otdelenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prepodovatel">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Prepodovatel">
+              <MappingFragment StoreEntitySet="Prepodovatel">
+                <ScalarProperty Name="ID_Prepodovatela" ColumnName="ID_Prepodovatela" />
+                <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+                <ScalarProperty Name="Obrozovanie" ColumnName="Obrozovanie" />
+                <ScalarProperty Name="Stepen" ColumnName="Stepen" />
+                <ScalarProperty Name="Kfalificacia" ColumnName="Kfalificacia" />
+                <ScalarProperty Name="Login_Prepod" ColumnName="Login_Prepod" />
+                <ScalarProperty Name="Password_Prepod" ColumnName="Password_Prepod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Raspisanie">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Raspisanie">
+              <MappingFragment StoreEntitySet="Raspisanie">
+                <ScalarProperty Name="ID_Raspisanie" ColumnName="ID_Raspisanie" />
+                <ScalarProperty Name="ID_Gruppa" ColumnName="ID_Gruppa" />
+                <ScalarProperty Name="ID_Nagruzka" ColumnName="ID_Nagruzka" />
+                <ScalarProperty Name="Nomer_kabineta" ColumnName="Nomer_kabineta" />
+                <ScalarProperty Name="Nomer_para" ColumnName="Nomer_para" />
+                <ScalarProperty Name="ID_Day_Nedelia" ColumnName="ID_Day_Nedelia" />
+                <ScalarProperty Name="ID_tip_Zanania" ColumnName="ID_tip_Zanania" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sotrudnik">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Sotrudnik">
+              <MappingFragment StoreEntitySet="Sotrudnik">
+                <ScalarProperty Name="ID_sotrudnika" ColumnName="ID_sotrudnika" />
+                <ScalarProperty Name="Familia" ColumnName="Familia" />
+                <ScalarProperty Name="Ima" ColumnName="Ima" />
+                <ScalarProperty Name="Othestvo" ColumnName="Othestvo" />
+                <ScalarProperty Name="Data_Rojdenia" ColumnName="Data_Rojdenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Specialnost">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Specialnost">
+              <MappingFragment StoreEntitySet="Specialnost">
+                <ScalarProperty Name="ID_Specialnosti" ColumnName="ID_Specialnosti" />
+                <ScalarProperty Name="Nomer_Specialnosti" ColumnName="Nomer_Specialnosti" />
+                <ScalarProperty Name="Nazvanie_Specialnosti" ColumnName="Nazvanie_Specialnosti" />
+                <ScalarProperty Name="ID_Otdelenia" ColumnName="ID_Otdelenia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID_Studenta" ColumnName="ID_Studenta" />
+                <ScalarProperty Name="ID_Gruppa" ColumnName="ID_Gruppa" />
+                <ScalarProperty Name="Familia_St" ColumnName="Familia_St" />
+                <ScalarProperty Name="Names_St" ColumnName="Names_St" />
+                <ScalarProperty Name="Othestvo_St" ColumnName="Othestvo_St" />
+                <ScalarProperty Name="Data_Rojdenia" ColumnName="Data_Rojdenia" />
+                <ScalarProperty Name="Gorod_Rojdenia" ColumnName="Gorod_Rojdenia" />
+                <ScalarProperty Name="LoginStudent" ColumnName="LoginStudent" />
+                <ScalarProperty Name="PasswordStudent" ColumnName="PasswordStudent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_Zanytia">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Tip_Zanytia">
+              <MappingFragment StoreEntitySet="Tip_Zanytia">
+                <ScalarProperty Name="ID_Tipa_zan" ColumnName="ID_Tipa_zan" />
+                <ScalarProperty Name="Nazvanie" ColumnName="Nazvanie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uhebnia_Plan">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Uhebnia_Plan">
+              <MappingFragment StoreEntitySet="Uhebnia_Plan">
+                <ScalarProperty Name="ID_Uhebnogo_Plana" ColumnName="ID_Uhebnogo_Plana" />
+                <ScalarProperty Name="ID_Disciplina" ColumnName="ID_Disciplina" />
+                <ScalarProperty Name="ID_Specialnosti" ColumnName="ID_Specialnosti" />
+                <ScalarProperty Name="Kolihestvo_Hasov" ColumnName="Kolihestvo_Hasov" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Zav_Otdelenia">
+            <EntityTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.Zav_Otdelenia">
+              <MappingFragment StoreEntitySet="Zav_Otdelenia">
+                <ScalarProperty Name="ID_zav_Otdelenia" ColumnName="ID_zav_Otdelenia" />
+                <ScalarProperty Name="ID_Sotrudnika" ColumnName="ID_Sotrudnika" />
+                <ScalarProperty Name="Obraozvanie" ColumnName="Obraozvanie" />
+                <ScalarProperty Name="Login_zaved" ColumnName="Login_zaved" />
+                <ScalarProperty Name="Passwors_zaved" ColumnName="Passwors_zaved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="Zadanie_na_Avtomat_KollegModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище Zadanie_na_Avtomat_KollegModel.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

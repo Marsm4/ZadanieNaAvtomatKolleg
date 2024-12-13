@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="acc3a427d43c48e9a8bca4f26a336629" Name="Diagram1">
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Day_Nedelia" Width="1.5" PointX="9.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Disciplina" Width="1.5" PointX="7.5" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Ekzamens" Width="1.5" PointX="14.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Gruppa" Width="1.5" PointX="9.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Nagruzka" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Otdelenie" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Prepodovatel" Width="1.5" PointX="3" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Raspisanie" Width="1.5" PointX="12" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Sotrudnik" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Specialnost" Width="1.5" PointX="7.5" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Student" Width="1.5" PointX="12" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Tip_Zanytia" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Uhebnia_Plan" Width="1.5" PointX="9.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Zadanie_na_Avtomat_KollegModel.Zav_Otdelenia" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Raspisanie_Day_Nedelia" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Uhebnia_Plan_Disciplina" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Ekzamen_Prepodovatel" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Ekzamen_Student" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Ekzamen_Uhebnia_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Gruppa_Specialnost" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Raspisanie_Gruppa" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Student_Gruppa" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Nagruzka_Prepodovatel" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Nagruzka_Uhebnia_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Raspisanie_Nagruzka" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Otdelenie_Zav_Otdelenia" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Specialnost_Otdelenie" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Prepodovatel_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Raspisanie_Tip_Zanytia" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Zav_Otdelenia_Sotrudnik" ManuallyRouted="false" />
+        <AssociationConnector Association="Zadanie_na_Avtomat_KollegModel.FK_Uhebnia_Plan_Specialnost" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
