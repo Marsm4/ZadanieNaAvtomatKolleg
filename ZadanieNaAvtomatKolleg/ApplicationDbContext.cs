@@ -5,7 +5,7 @@ namespace ZadanieNaAvtomatKolleg
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() : base("name=ZadanieNaAvtomatKollegConnection")
+        public ApplicationDbContext() : base("name=Zadanie_na_Avtomat_KollegEntities")
         {
         }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ namespace ZadanieNaAvtomatKolleg
 {
     public class Prepodovatel
     {
+        [Key]
         public int ID_Prepodovatela { get; set; }
         public int? ID_Sotrudnika { get; set; }
         public string Obrazovanie { get; set; }
