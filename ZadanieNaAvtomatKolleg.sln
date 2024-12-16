@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ZadanieNaAvtomatKollegConso
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadanieNaAvtomatKollegWPF", "ZadanieNaAvtomatKollegWPF\ZadanieNaAvtomatKollegWPF.csproj", "{6A46C95F-5754-45DB-A8F8-819BF6F38466}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZadanieNaAvtomatKollegAPI", "ZadanieNaAvtomatKollegAPI\ZadanieNaAvtomatKollegAPI.csproj", "{6406F1E9-B8C7-48D0-999C-82DF568C4150}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{6A46C95F-5754-45DB-A8F8-819BF6F38466}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A46C95F-5754-45DB-A8F8-819BF6F38466}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A46C95F-5754-45DB-A8F8-819BF6F38466}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6406F1E9-B8C7-48D0-999C-82DF568C4150}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6406F1E9-B8C7-48D0-999C-82DF568C4150}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6406F1E9-B8C7-48D0-999C-82DF568C4150}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6406F1E9-B8C7-48D0-999C-82DF568C4150}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

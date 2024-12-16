@@ -1,11 +1,10 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;  // Используйте System.Data.Entity для Entity Framework 6.x
 
 namespace ZadanieNaAvtomatKolleg
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() : base("name=Zadanie_na_Avtomat_KollegEntities")
+        public ApplicationDbContext() : base("name=Zadanie_na_Avtomat_KollegEntities")  // Строка подключения из конфигурации
         {
         }
 
