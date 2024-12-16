@@ -19,6 +19,20 @@ namespace ZadanieNaAvtomatKolleg
         public int? Nomer_para { get; set; }
         public string ID_Day_Nedelia { get; set; }
         public string ID_tip_Zanania { get; set; }
+
+        // Свойство для связи с таблицей Nagruzka
+        [ForeignKey("ID_Nagruzka")]
+        public Nagruzka Nagruzka { get; set; }
+
+        // Виртуальное свойство для ID_Prepodovatela
+        [NotMapped] // Это свойство не будет сохраняться в базе данных
+        public int? ID_Prepodovatela
+        {
+            get
+            {
+                return Nagruzka?.ID_Prepodovatela;
+            }
+        }
     }
 
 }

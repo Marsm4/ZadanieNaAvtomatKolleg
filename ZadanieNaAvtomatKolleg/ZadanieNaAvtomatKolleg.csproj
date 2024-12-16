@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="GruppaService.cs" />
     <Compile Include="IEkzamensService.cs" />
+    <Compile Include="INagruzkaService.cs" />
     <Compile Include="IPrepodovatelService.cs" />
     <Compile Include="IRaspisanieService.cs" />
     <Compile Include="IStudentService.cs" />

@@ -6,23 +6,27 @@ namespace ZadanieNaAvtomatKolleg.Core
     public class CoreApplication
     {
         private readonly IStudentService _studentService;
-        private readonly PrepodovatelService _prepodovatelService;
+        private readonly IPrepodovatelService _prepodovatelService;
         private readonly IZavOtdeleniaService _zavOtdeleniaService;
         private readonly RaspisanieService _raspisanieService;
         private readonly EkzamensService _ekzamensService;
+        private readonly INagruzkaService _nagruzkaService; // Добавлено поле для INagruzkaService
 
+        // Единый конструктор для всех зависимостей
         public CoreApplication(
             IStudentService studentService,
-            PrepodovatelService prepodovatelService,
+            IPrepodovatelService prepodovatelService,
             IZavOtdeleniaService zavOtdeleniaService,
             RaspisanieService raspisanieService,
-            EkzamensService ekzamensService)
+            EkzamensService ekzamensService,
+            INagruzkaService nagruzkaService) // Добавлен INagruzkaService
         {
             _studentService = studentService;
             _prepodovatelService = prepodovatelService;
             _zavOtdeleniaService = zavOtdeleniaService;
             _raspisanieService = raspisanieService;
             _ekzamensService = ekzamensService;
+            _nagruzkaService = nagruzkaService; // Инициализация INagruzkaService
         }
 
         // Методы для работы с экзаменами
@@ -113,6 +117,12 @@ namespace ZadanieNaAvtomatKolleg.Core
         public void DeleteZavOtdelenia(int id)
         {
             _zavOtdeleniaService.Delete(id);
+        }
+
+        // Метод для работы с нагрузкой
+        public IEnumerable<Nagruzka> GetAllNagruzka()
+        {
+            return _nagruzkaService.GetAll(); // Используется инициализированный сервис
         }
     }
 }

@@ -77,6 +77,12 @@
     <Compile Include="AddEkzamenWindow.xaml.cs">
       <DependentUpon>AddEkzamenWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EditOcenkaWindow.xaml.cs">
+      <DependentUpon>EditOcenkaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PrepodovatelWindow.xaml.cs">
+      <DependentUpon>PrepodovatelWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentWindow.xaml.cs">
       <DependentUpon>StudentWindow.xaml</DependentUpon>
     </Compile>
@@ -84,6 +90,10 @@
       <DependentUpon>ZavOtdeleniaWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AddEkzamenWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditOcenkaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -99,6 +109,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PrepodovatelWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StudentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -25,6 +25,8 @@ namespace ZadanieNaAvtomatKollegWPF
             container.RegisterType<IRaspisanieService, RaspisanieService>();
             container.RegisterType<IEkzamensService, EkzamensService>();
             container.RegisterType<ApplicationDbContext, ApplicationDbContext>();
+            container.RegisterType<INagruzkaService, NagruzkaService>();
+            container.RegisterType<ApplicationDbContext, ApplicationDbContext>();
 
             _coreApp = container.Resolve<CoreApplication>();
         }
@@ -58,20 +60,20 @@ namespace ZadanieNaAvtomatKollegWPF
                     }
                     break;
 
-                //case "Преподаватель":
-                //    var prepodovatel = _coreApp.GetAllPrepodovatel().FirstOrDefault(p => p.Login_Prepod == login && p.Password_Prepod == password);
-                //    if (prepodovatel != null)
-                //    {
-                //        // Открываем окно для преподавателя
-                //        var prepodovatelWindow = new PrepodovatelWindow(prepodovatel, _coreApp);
-                //        prepodovatelWindow.Show();
-                //        this.Close();
-                //    }
-                //    else
-                //    {
-                //        MessageBox.Show("Неверный логин или пароль.");
-                //    }
-                //    break;
+                case "Преподаватель":
+                    var prepodovatel = _coreApp.GetAllPrepodovatel().FirstOrDefault(p => p.Login_Prepod == login && p.Password_Prepod == password);
+                    if (prepodovatel != null)
+                    {
+                        // Открываем окно для преподавателя
+                        var prepodovatelWindow = new PrepodovatelWindow(prepodovatel, _coreApp);
+                        prepodovatelWindow.Show();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Неверный логин или пароль.");
+                    }
+                    break;
 
                 case "Заведующий отделением":
                     var zavOtdelenia = _coreApp.GetAllZavOtdelenia().FirstOrDefault(z => z.Login_zaved == login && z.Passwors_zaved == password);
