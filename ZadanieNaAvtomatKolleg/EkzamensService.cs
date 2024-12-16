@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ZadanieNaAvtomatKolleg.Interfaces;
 
 namespace ZadanieNaAvtomatKolleg
 {
-    public class EkzamensService
+    public class EkzamensService : IEkzamensService
     {
         private readonly ApplicationDbContext _context;
 
@@ -48,5 +46,4 @@ namespace ZadanieNaAvtomatKolleg
             }
         }
     }
-
 }

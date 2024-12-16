@@ -79,6 +79,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="GruppaService.cs" />
+    <Compile Include="IEkzamensService.cs" />
+    <Compile Include="IPrepodovatelService.cs" />
+    <Compile Include="IRaspisanieService.cs" />
     <Compile Include="IStudentService.cs" />
     <Compile Include="IZavOtdeleniaService.cs" />
     <Compile Include="NagruzkaService.cs" />

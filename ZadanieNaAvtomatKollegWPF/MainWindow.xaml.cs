@@ -6,7 +6,7 @@ using ZadanieNaAvtomatKolleg.Interfaces;
 using ZadanieNaAvtomatKolleg.Services;
 using Unity;
 using System.Windows.Controls;
-
+using ZadanieNaAvtomatKolleg.Interfaces;
 namespace ZadanieNaAvtomatKollegWPF
 {
     public partial class MainWindow : Window
@@ -58,20 +58,20 @@ namespace ZadanieNaAvtomatKollegWPF
                     }
                     break;
 
-                case "Преподаватель":
-                    var prepodovatel = _coreApp.GetAllPrepodovatel().FirstOrDefault(p => p.Login_Prepod == login && p.Password_Prepod == password);
-                    if (prepodovatel != null)
-                    {
-                        // Открываем окно для преподавателя
-                        var prepodovatelWindow = new PrepodovatelWindow(prepodovatel, _coreApp);
-                        prepodovatelWindow.Show();
-                        this.Close();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Неверный логин или пароль.");
-                    }
-                    break;
+                //case "Преподаватель":
+                //    var prepodovatel = _coreApp.GetAllPrepodovatel().FirstOrDefault(p => p.Login_Prepod == login && p.Password_Prepod == password);
+                //    if (prepodovatel != null)
+                //    {
+                //        // Открываем окно для преподавателя
+                //        var prepodovatelWindow = new PrepodovatelWindow(prepodovatel, _coreApp);
+                //        prepodovatelWindow.Show();
+                //        this.Close();
+                //    }
+                //    else
+                //    {
+                //        MessageBox.Show("Неверный логин или пароль.");
+                //    }
+                //    break;
 
                 case "Заведующий отделением":
                     var zavOtdelenia = _coreApp.GetAllZavOtdelenia().FirstOrDefault(z => z.Login_zaved == login && z.Passwors_zaved == password);
