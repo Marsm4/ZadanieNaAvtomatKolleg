@@ -15,11 +15,11 @@ namespace ZadanieNaAvtomatKolleg.ConsoleApp
 
             // Регистрируем сервисы
             container.RegisterType<IStudentService, StudentService>();
-            container.RegisterType<PrepodovatelService, PrepodovatelService>();
+            container.RegisterType<IPrepodovatelService, PrepodovatelService>();
             container.RegisterType<IZavOtdeleniaService, ZavOtdeleniaService>();
-            container.RegisterType<RaspisanieService, RaspisanieService>();
-            container.RegisterType<EkzamensService, EkzamensService>();
-
+            container.RegisterType<IRaspisanieService, RaspisanieService>();
+            container.RegisterType<IEkzamensService, EkzamensService>();
+            container.RegisterType<INagruzkaService, NagruzkaService>();
             // Регистрируем ядро
             container.RegisterType<CoreApplication>();
 
