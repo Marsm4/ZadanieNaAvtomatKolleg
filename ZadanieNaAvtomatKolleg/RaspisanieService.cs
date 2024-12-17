@@ -2,7 +2,7 @@
 using System.Data.Entity;
 using System.Linq;
 using ZadanieNaAvtomatKolleg.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 namespace ZadanieNaAvtomatKolleg
 {
     public class RaspisanieService : IRaspisanieService
@@ -32,7 +32,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Raspisanie raspisanie)
         {
-            _context.Entry(raspisanie).State = EntityState.Modified;
+            _context.Entry(raspisanie).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 

@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Linq;
 using ZadanieNaAvtomatKolleg.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 namespace ZadanieNaAvtomatKolleg
 {
     public class PrepodovatelService : IPrepodovatelService
@@ -32,7 +32,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Prepodovatel prepodovatel)
         {
-            _context.Entry(prepodovatel).State = EntityState.Modified;
+            _context.Entry(prepodovatel).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 

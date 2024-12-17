@@ -34,7 +34,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Uhebnia_Plan uhebniaPlan)
         {
-            _context.Entry(uhebniaPlan).State = EntityState.Modified;
+            _context.Entry(uhebniaPlan).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 

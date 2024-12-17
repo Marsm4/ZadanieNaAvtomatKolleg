@@ -33,7 +33,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Zav_Otdelenia zavOtdelenia)
         {
-            _context.Entry(zavOtdelenia).State = EntityState.Modified;
+            _context.Entry(zavOtdelenia).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 

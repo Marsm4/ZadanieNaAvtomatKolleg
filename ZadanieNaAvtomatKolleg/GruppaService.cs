@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ZadanieNaAvtomatKolleg
 {
@@ -34,9 +35,10 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Gruppa gruppa)
         {
-            _context.Entry(gruppa).State = EntityState.Modified;
+            _context.Entry(gruppa).State = Microsoft.EntityFrameworkCore.EntityState.Modified; // Из EF Core
             _context.SaveChanges();
         }
+
 
         public void Delete(int id)
         {

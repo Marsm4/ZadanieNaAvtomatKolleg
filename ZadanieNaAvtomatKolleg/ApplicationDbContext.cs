@@ -1,10 +1,11 @@
-﻿using System.Data.Entity;  // Используйте System.Data.Entity для Entity Framework 6.x
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace ZadanieNaAvtomatKolleg
 {
     public class ApplicationDbContext : DbContext
     {
-        public ApplicationDbContext() : base("name=Zadanie_na_Avtomat_KollegEntities")  // Строка подключения из конфигурации
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
         {
         }
 
@@ -22,10 +23,5 @@ namespace ZadanieNaAvtomatKolleg
         public DbSet<Tip_Zanytia> Tip_Zanytia { get; set; }
         public DbSet<Uhebnia_Plan> Uhebnia_Plan { get; set; }
         public DbSet<Zav_Otdelenia> Zav_Otdelenia { get; set; }
-
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
     }
 }

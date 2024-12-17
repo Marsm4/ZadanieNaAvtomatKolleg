@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
+//using System.Data.Entity;
 using System.Linq;
 using ZadanieNaAvtomatKolleg.Interfaces;
-
+using Microsoft.EntityFrameworkCore;
 namespace ZadanieNaAvtomatKolleg.Services
 {
     public class NagruzkaService : INagruzkaService
@@ -32,7 +32,7 @@ namespace ZadanieNaAvtomatKolleg.Services
 
         public void Update(Nagruzka nagruzka)
         {
-            _context.Entry(nagruzka).State = EntityState.Modified;
+            _context.Entry(nagruzka).State = EntityState.Modified; // EF Core EntityState
             _context.SaveChanges();
         }
 

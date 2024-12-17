@@ -34,7 +34,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Specialnost specialnost)
         {
-            _context.Entry(specialnost).State = EntityState.Modified;
+            _context.Entry(specialnost).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 

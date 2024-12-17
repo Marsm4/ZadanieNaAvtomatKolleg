@@ -32,7 +32,7 @@ namespace ZadanieNaAvtomatKolleg
 
         public void Update(Ekzamens ekzamens)
         {
-            _context.Entry(ekzamens).State = EntityState.Modified;
+            _context.Entry(ekzamens).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _context.SaveChanges();
         }
 
