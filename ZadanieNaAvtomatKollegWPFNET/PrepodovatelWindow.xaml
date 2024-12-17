@@ -1,0 +1,45 @@
+﻿<Window x:Class="ZadanieNaAvtomatKollegWPFNET.PrepodovatelWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Преподаватель" Height="450" Width="800">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+
+		<!-- Заголовок -->
+		<TextBlock Text="Преподаватель: [Имя преподавателя]" FontSize="18" HorizontalAlignment="Center" Margin="10"/>
+
+		<!-- Вкладки -->
+		<TabControl Grid.Row="1" Margin="10">
+			<!-- Вкладка "Расписание" -->
+			<TabItem Header="Расписание">
+				<DataGrid x:Name="RaspisanieDataGrid" AutoGenerateColumns="True" IsReadOnly="True"/>
+			</TabItem>
+
+			<!-- Вкладка "Экзамены" -->
+			<TabItem Header="Экзамены">
+				<DataGrid x:Name="EkzamensDataGrid" AutoGenerateColumns="True" CanUserAddRows="False">
+					<DataGrid.Columns>
+						<DataGridTextColumn Header="Студент" Binding="{Binding Student.Names_St}"/>
+						<DataGridTextColumn Header="Дисциплина" Binding="{Binding Disciplina.Naimenovanie}"/>
+						<DataGridTextColumn Header="Оценка" Binding="{Binding Ocenka}"/>
+						<DataGridTemplateColumn Header="Изменить оценку">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate>
+									<Button Content="Изменить" Click="EditOcenka_Click"/>
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
+			</TabItem>
+
+			<!-- Вкладка "Нагрузка" -->
+			<TabItem Header="Нагрузка">
+				<DataGrid x:Name="NagruzkaDataGrid" AutoGenerateColumns="True" IsReadOnly="True"/>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>

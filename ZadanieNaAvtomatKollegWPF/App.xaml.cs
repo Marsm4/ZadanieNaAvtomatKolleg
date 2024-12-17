@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.Extensions.DependencyInjection;
+using ZadanieNaAvtomatKolleg;
 
 namespace ZadanieNaAvtomatKollegWPF
 {
@@ -13,5 +10,21 @@ namespace ZadanieNaAvtomatKollegWPF
     /// </summary>
     public partial class App : Application
     {
+        public static ServiceProvider ServiceProvider { get; private set; }
+
+        public App()
+        {
+            // Вызов метода из библиотеки классов для настройки DI и DbContext
+            ServiceProvider = DependencyInjection.ConfigureServices(); // Метод, который настраивает DI в библиотеке классов
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            // Инициализация главного окна через DI
+            var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+            mainWindow.Show();
+        }
     }
 }
