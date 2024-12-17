@@ -4,7 +4,7 @@ using System.Windows;
 using ZadanieNaAvtomatKolleg;
 using ZadanieNaAvtomatKolleg.Core;
 
-namespace ZadanieNaAvtomatKollegWPF
+namespace ZadanieNaAvtomatKollegWPFNET1
 {
     public partial class ZavOtdeleniaWindow : Window
     {

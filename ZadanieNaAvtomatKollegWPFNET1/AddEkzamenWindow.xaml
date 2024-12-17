@@ -1,0 +1,22 @@
+﻿<Window x:Class="ZadanieNaAvtomatKollegWPFNET1.AddEkzamenWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить экзамен" Height="382" Width="400">
+	<Grid>
+		<StackPanel Margin="10">
+			<TextBlock Text="ID Учебного плана:" Margin="0,0,0,5"/>
+			<TextBox x:Name="IDUchebnogoPlanaTextBox" Margin="0,0,0,10"/>
+			<TextBlock Text="ID Преподавателя:" Margin="0,0,0,5"/>
+			<TextBox x:Name="IDPrepodovatelaTextBox" Margin="0,0,0,10"/>
+			<TextBlock Text="ID Студента:" Margin="0,0,0,5"/>
+			<TextBox x:Name="IDStudentaTextBox" Margin="0,0,0,10"/>
+			<TextBlock Text="Дата проведения:" Margin="0,0,0,5"/>
+			<DatePicker x:Name="DataProvedeniaDatePicker" Margin="0,0,0,10"/>
+			<TextBlock Text="Номер кабинета:" Margin="0,0,0,5"/>
+			<TextBox x:Name="NomerKabinetaTextBox" Margin="0,0,0,10"/>
+			<TextBlock Text="Оценка:" Margin="0,0,0,5"/>
+			<TextBox x:Name="OcenkaTextBox" Margin="0,0,0,10"/>
+			<Button Content="Добавить" Click="AddButton_Click" Width="100" HorizontalAlignment="Center"/>
+		</StackPanel>
+	</Grid>
+</Window>

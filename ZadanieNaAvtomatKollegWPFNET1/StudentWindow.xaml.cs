@@ -21,13 +21,13 @@ namespace ZadanieNaAvtomatKollegWPFNET1
     /// </summary>
     public partial class StudentWindow : Window
     {
-        private Student _student;
+       private Student _student;
         private CoreApplication _coreApp;
         public StudentWindow()
         {
             InitializeComponent();
             _student = student;
-            _coreApp = coreApp;
+
 
             LoadData();
         }
