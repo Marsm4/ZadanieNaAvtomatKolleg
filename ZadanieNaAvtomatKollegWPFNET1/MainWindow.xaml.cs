@@ -21,6 +21,7 @@ namespace ZadanieNaAvtomatKollegWPFNET1
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CoreApplication _coreApp;
         public MainWindow()
         {
             InitializeComponent();

@@ -1,7 +1,11 @@
-﻿<Window x:Class="ZadanieNaAvtomatKollegWPFNET1.ZavOtdeleniaWindow"
+﻿<Window x:Class="ZadanieNaAvtomatKolegWPF.ZavOtdeleniaWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Заведующий отделением" Height="450" Width="600">
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZadanieNaAvtomatKolegWPF"
+        mc:Ignorable="d"
+               Title="Заведующий отделением" Height="450" Width="600">
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto"/>

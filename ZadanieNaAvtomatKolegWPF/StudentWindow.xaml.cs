@@ -14,14 +14,14 @@ using System.Windows.Shapes;
 using ZadanieNaAvtomatKolleg.Core;
 using ZadanieNaAvtomatKolleg;
 
-namespace ZadanieNaAvtomatKollegWPFNET1
+namespace ZadanieNaAvtomatKolegWPF
 {
     /// <summary>
     /// Логика взаимодействия для StudentWindow.xaml
     /// </summary>
     public partial class StudentWindow : Window
     {
-       private Student _student;
+        private Student _student;
         private CoreApplication _coreApp;
         public StudentWindow(Student student, CoreApplication coreApp)
         {

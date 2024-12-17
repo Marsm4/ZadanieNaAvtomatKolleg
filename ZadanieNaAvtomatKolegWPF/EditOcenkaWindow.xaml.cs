@@ -1,9 +1,24 @@
-﻿using System.Windows;
-using ZadanieNaAvtomatKolleg;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using ZadanieNaAvtomatKolleg.Core;
+using ZadanieNaAvtomatKolleg;
 
-namespace ZadanieNaAvtomatKollegWPFNET1
+namespace ZadanieNaAvtomatKolegWPF
 {
+    /// <summary>
+    /// Логика взаимодействия для EditOcenkaWindow.xaml
+    /// </summary>
     public partial class EditOcenkaWindow : Window
     {
         private readonly Ekzamens _ekzamen;

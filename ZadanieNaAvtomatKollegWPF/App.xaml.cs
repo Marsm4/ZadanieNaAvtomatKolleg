@@ -1,28 +1,24 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Windows;
-using Microsoft.Extensions.DependencyInjection;
-using ZadanieNaAvtomatKolleg;
 
-namespace ZadanieNaAvtomatKollegWPF
+namespace ZadanieNaAvtomatKollegWPFNET1
 {
-    /// <summary>
-    /// Логика взаимодействия для App.xaml
-    /// </summary>
     public partial class App : Application
     {
-        public static ServiceProvider ServiceProvider { get; private set; }
+        public static IServiceProvider ServiceProvider { get; private set; }
 
         public App()
         {
-            // Вызов метода из библиотеки классов для настройки DI и DbContext
-            ServiceProvider = DependencyInjection.ConfigureServices(); // Метод, который настраивает DI в библиотеке классов
+            // Конфигурация DI
+            ServiceProvider = DependencyInjection.ConfigureServices();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 
-            // Инициализация главного окна через DI
+            // Получаем экземпляр главного окна через DI
             var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
             mainWindow.Show();
         }

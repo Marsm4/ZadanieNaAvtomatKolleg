@@ -6,8 +6,16 @@ namespace ZadanieNaAvtomatKolleg
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
+        { }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=DESKTOP-E6N8VGF\\SQLEXPRESS;Database=Zadanie_na_Avtomat_Kolleg;Integrated Security=True;TrustServerCertificate=True;MultipleActiveResultSets=True;");
+            }
         }
+
 
         public DbSet<Day_Nedelia> Day_Nedelia { get; set; }
         public DbSet<Disciplina> Disciplina { get; set; }

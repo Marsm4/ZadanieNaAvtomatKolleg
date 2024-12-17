@@ -23,7 +23,7 @@ namespace ZadanieNaAvtomatKollegWPFNET1
     {
        private Student _student;
         private CoreApplication _coreApp;
-        public StudentWindow()
+        public StudentWindow(Student student, CoreApplication coreApp)
         {
             InitializeComponent();
             _student = student;

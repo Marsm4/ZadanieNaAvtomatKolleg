@@ -4,7 +4,7 @@ using ZadanieNaAvtomatKolleg;
 using ZadanieNaAvtomatKolleg.Core;
 using ZadanieNaAvtomatKolleg.Interfaces;
 
-namespace ZadanieNaAvtomatKollegWPF
+namespace ZadanieNaAvtomatKollegWPFNET1
 {
     public partial class PrepodovatelWindow : Window
     {
